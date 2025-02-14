@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">CAR DETAILS</h4>
+                    <p class="card-description">Car details</p>
+                    <form class="forms-sample" method="post" action="{% url 'savecar' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputName1">Car Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Car Name" name="name">
+                      </div>
+                       <div class="form-group">
+                      <label for="exampleSelectGender">Select Brand</label>
+                        <select class="form-control" id="exampleSelectGender" name="brand">
+                          <option>Select</option>
+                            {% for d in cat %}
+                          <option>{{d.bbrand}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Car Model</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Model" name="model">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label>Upload Car images</label>
+                        <input type="file" name="image" class="file-upload-default" placeholder="Car Image">
+                        <div class="input-group col-xs-12">
+                           </div>
+                     <div class="form-group">
+
+                      <input type="file" class="form-control" placeholder="Category Image" name="image">
+                    </div>
+                        </div>
+
+                       <div class="form-group">
+                        <label for="exampleInputEmai">Price</label>
+                        <input type="number" class="form-control" id="exampleInputEmai" placeholder="Price" name="price">
+                      </div>
+
+                        <div class="form-group">
+                        <label for="exampleInputEmi">GST</label>
+                        <input type="number" class="form-control" id="exampleInputEmi" placeholder="GST" name="gst">
+                      </div>
+
+                        <div class="form-group">
+                        <label for="exampleInpEmi">Insurance</label>
+                        <input type="number" class="form-control" id="exampleInpEmi" placeholder="Insurance" name="insurance">
+                      </div>
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   {% if messages %}
+     {% for i in messages %}
+         {% if i.tags == 'warning'%}
+              <script>
+                  swal('{{i}}','','warning');
+              </script>
+         {% elif i.tags == 'error'%}
+              <script>
+                  swal('{{i}}','','error');
+              </script>
+         {% elif i.tags == 'info'%}
+              <script>
+                  swal('{{i}}','','info');
+              </script>
+         {% else %}
+               <script>
+                  swal('{{i}}','','success');
+              </script>
+         {% endif %}
+     {% endfor %}
+   {% endif %}
+</body>
+</html>
+{% endblock %}

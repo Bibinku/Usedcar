@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">EDIT SPECIFICATION DETAILS</h4>
+                    <p class="card-description">Edit Specification Details</p>
+                    <form class="forms-sample"  method="post" action="{% url 'updatespecification' Sid=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Option 1</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="option1" name="option1" value="{{data.option1}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Option 2</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Model" name="option2" value="{{data.option2}}">
+                      </div>
+
+
+
+
+                       <div class="form-group">
+                        <label for="exampleInputEmail3">Option 3</label>
+                        <input type="text" class="form-control" id="exampleInputEmai" placeholder="option3" name="option3" value="{{data.option3}}">
+                      </div>
+
+                         <div class="form-group">
+                        <label for="exameInputEmai">Option 4</label>
+                        <input type="text" class="form-control" id="exameInputEmai" placeholder="option4" name="option4" value="{{data.option4}}">
+                      </div>
+
+                        <div class="form-group">
+                        <label for="exameputEmai">Option 5 </label>
+                        <input type="text" class="form-control" id="exameputEmai" placeholder="option5" name="option5" value="{{data.option5}}">
+                      </div>
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> UPDATE </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}

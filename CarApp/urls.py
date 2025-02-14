@@ -1,0 +1,36 @@
+from django.urls import path
+from CarApp import views
+
+urlpatterns=[
+   path('indexpage/',views.indexpage,name="indexpage"),
+   path('cardetails/',views.cardetails,name="cardetails"),
+   path('savecar/',views.savecar,name="savecar"),
+   path('displaycar/',views.displaycar,name="displaycar"),
+   path('editcar/<int:Cid>/',views.editcar,name="editcar"),
+   path('updatecar/<int:Cid>/',views.updatecar,name="updatecar"),
+   path('deletecar/<int:Cid>/',views.deletecar,name="deletecar"),
+   path('Adminlogin/',views.Adminlogin,name="Adminlogin"),
+   path('loginin/',views.loginin,name="loginin"),
+   path('adminlogout/',views.adminlogout,name="adminlogout"),
+   path('brandpage/',views.brandpage,name="brandpage"),
+   path('savebrand/',views.savebrand,name="savebrand"),
+   path('displaybrand/',views.displaybrand,name="displaybrand"),
+   path('editbrand/<int:Cid>/',views.editbrand,name="editbrand"),
+   path('deletebrand/<int:Cid>/',views.deletebrand,name="deletebrand"),
+   path('updatebrand/<int:Cid>/',views.updatebrand,name="updatebrand"),
+   path('displaycontact/',views.displaycontact,name="displaycontact"),
+   path('deletecontact/<int:CONid>/',views.deletecontact,name="deletecontact"),
+   path('specification/',views.specification,name="specification"),
+   path('savespecification/',views.savespecification,name="savespecification"),
+   path('displayspecification/',views.displayspecification,name="displayspecification"),
+   path('editspecification/<int:Sid>/',views.editspecification,name="editspecification"),
+   path('updatespecification/<int:Sid>/',views.updatespecification,name="updatespecification"),
+   path('deletespecification/<int:Sid>/',views.deletespecification,name="deletespecification"),
+   path('features/', views.features, name="features"),
+   path('savefeatures/', views.savefeatures, name="savefeatures"),
+   path('displayfeatures/', views.displayfeatures, name="displayfeatures"),
+   path('editfeatures/<int:Fid>/', views.editfeatures, name="editfeatures"),
+   path('updatefeatures/<int:Fid>/', views.updatefeatures, name="updatefeatures"),
+   path('deletefeatures/<int:Fid>/', views.deletefeatures, name="deletefeatures"),
+
+]
