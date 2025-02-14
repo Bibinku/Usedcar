@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-od+9urxuo!d89_bg-dy#sivajm_g4m&^2twwmm!=urq9q0j)ts
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+import os
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "usedcar-ovz5.onrender.com").split(",")
+
 
 
 # Application definition
